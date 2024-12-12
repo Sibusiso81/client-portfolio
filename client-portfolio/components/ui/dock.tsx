@@ -72,7 +72,7 @@ Dock.displayName = "Dock";
 export interface DockIconProps {
   magnification?: number;
   distance?: number;
-  mouseX?: MotionValue<number> | any;
+  mouseX?: MotionValue<number> ;
   className?: string;
   children?: React.ReactNode;
   props?: PropsWithChildren;
@@ -88,24 +88,40 @@ const DockIcon = ({
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const distanceCalc = useTransform(mouseX, (val: number) => {
+ /*  const distanceCalc: MotionValue<number> = useTransform(mouseX, (val: number) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
+    return val - bounds.x - bounds.width / 2;
+  }); */
+  const distanceCalc = useTransform(mouseX!, (val: number) => {
+    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
 
-  const widthSync = useTransform(
+  const widthSync: MotionValue<number> = useTransform(
     distanceCalc,
     [-distance, 0, distance],
-    [40, magnification, 40],
+    [40, magnification, 40]
   );
-
+  
   const width = useSpring(widthSync, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-
+  ////
+  const renderChildren = () => {
+    return React.Children.map(children, (child) => {
+      if (React.isValidElement(child) && child.type === DockIcon) {
+        return React.cloneElement(child as React.ReactElement<DockIconProps>, {
+          ...(child.props || {}),
+          mouseX: mouseX!, // Ensure mouseX is not undefined here
+          magnification: magnification,
+          distance: distance,
+        });
+      }
+      return child;
+    });
+  };
   return (
     <motion.div
       ref={ref}

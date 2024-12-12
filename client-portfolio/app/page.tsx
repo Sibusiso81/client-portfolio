@@ -105,10 +105,9 @@ export default function Home() {
        const now = new Date()//Get the current data and time
        //extract hours 
         
-          now.getMinutes() <= 9 
-        ?  SetTime(`${now.getHours().toString()}:${now.getMinutes().toString()}`)
-         :  SetTime(`${now.getHours().toString()}:${now.getMinutes().toString()}`)
-        
+       SetTime(
+        `${now.getHours().toString()}:${now.getMinutes().toString().padStart(2, '0')}`
+      );
        //extract minutes
       
        /* if(minutes <= 9 ){
@@ -123,12 +122,8 @@ export default function Home() {
        const now = new Date()
        
        SetTime(
-        now.getMinutes() <= 9 
-        ?  `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`
-
-         :  `${now.getHours().toString()}:${now.getMinutes().toString()}`
-       )
-       
+        `${now.getHours().toString()}:${now.getMinutes().toString().padStart(2, '0')}`
+      );
        
       }
       getTime()
@@ -142,7 +137,7 @@ export default function Home() {
   }, [resolvedTheme,color]);
   return (
     <main className=" w-screen h-screen  overflow-x-hidden">
-        <section className="jsutify-center items-center w-full flex-col  h-screen  flex flex-1 relative overflow-x-hidden">
+        <section className="jsutify-center items-center w-full flex-col  h-screen  flex flex-1 relative ">
        <Particles
         className="absolute inset-0"
         quantity={100}
