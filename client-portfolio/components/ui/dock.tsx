@@ -72,7 +72,7 @@ Dock.displayName = "Dock";
 export interface DockIconProps {
   magnification?: number;
   distance?: number;
-  mouseX?: any;
+  mouseX?: any | unknown;
   className?: string;
   children?: React.ReactNode;
   props?: PropsWithChildren;
