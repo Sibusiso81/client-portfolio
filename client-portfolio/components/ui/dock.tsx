@@ -115,6 +115,7 @@ const DockIcon = ({
         className,
       )}
       {...props}
+      
     >
       {children}
     </motion.div>

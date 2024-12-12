@@ -104,11 +104,11 @@ export default function Home() {
       setInterval(()=>{
        const now = new Date()//Get the current data and time
        //extract hours 
-        {
+        
           now.getMinutes() <= 9 
         ?  SetTime(`${now.getHours().toString()}:${now.getMinutes().toString()}`)
          :  SetTime(`${now.getHours().toString()}:${now.getMinutes().toString()}`)
-        }
+        
        //extract minutes
       
        /* if(minutes <= 9 ){
@@ -121,20 +121,18 @@ export default function Home() {
    
        //Immedialey log the initial timme to avoid waiting for the first interval
        const now = new Date()
-       {
-        now.getMinutes() <= 9 
-        ?  SetTime(`${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`)
-
-         :  SetTime(`${now.getHours().toString()}:${now.getMinutes().toString()}`)
-       }
-     
        
-     }
-    /*  if(typeof window !== 'undefined'){
+       SetTime(
+        now.getMinutes() <= 9 
+        ?  `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`
+
+         :  `${now.getHours().toString()}:${now.getMinutes().toString()}`
+       )
+       
+       
+      }
       getTime()
-      console.log(time)
-      
-     } */
+    
   })
   ///
   useEffect(() => {
@@ -143,38 +141,39 @@ export default function Home() {
     console.log(color)
   }, [resolvedTheme,color]);
   return (
-    <main className=" w-screen ">
-       
+    <main className=" w-screen h-screen  overflow-x-hidden">
+        <section className="jsutify-center items-center w-full flex-col  h-screen  flex flex-1 relative overflow-x-hidden">
        <Particles
         className="absolute inset-0"
         quantity={100}
         ease={80}
-        color={'dark'}
+        color={color}
         refresh
       >
         
       </Particles>
       <div className="pr-2">
     <div className="pr-4">
-      <div className="flex flex-row-reverse">
+      <div className="flex flex-row justify-center">
       <HyperText
       duration={3}
-      className="text-2xl text-end font-bold t dark:text-white"
+      className="text-xl text-end font-bold t dark:text-white"
       text="Sanele  Ncube"
     />
       </div>
     
-    <div className="flex flex-row-reverse place-self-end">
+    <div className="flex flex-row justify-center">
       <HyperText
       duration={3}
-      className="text-2xl font-bold  dark:text-white"
+      className="text-sm font-bold  dark:text-white"
       text="JHB,South Africa"
     />
   
       </div>
-      <div className="flex flex-row-reverse">
+      <div className="flex flex-row justify-center text-center
+      ">
       <motion.div
-      className="text-md font-bold  dark:text-white"
+      className="text-[10px] font-bold  dark:text-white"
       initial={{
         opacity:0,
       }}
@@ -187,7 +186,7 @@ export default function Home() {
       }}
     >
       
-      <p  className="text-xl font-bold  dark:text-white">
+      <p  className="text-sm font-bold  dark:text-white">
       {time}
       </p>
     </motion.div>
@@ -196,7 +195,7 @@ export default function Home() {
    
       </div>
     </div>
-    <section className="jsutify-center items-center w-full flex-col  h-screen  flex flex-1 relative ">
+   
       <motion.div
       initial={{
         opacity:0,
