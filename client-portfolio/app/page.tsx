@@ -195,8 +195,8 @@ export default function Home() {
       >
         
       </Particles>
-      <div className="pr-2">
-    <div className="pr-4 ">
+      <div className="p-2">
+    <div className=" ">
       <div className="flex flex-row justify-center">
       <HyperText
       duration={3}
@@ -205,7 +205,7 @@ export default function Home() {
     />
       </div>
     
-    <div className="flex flex-row justify-center">
+    <div className="flex flex-row justify-center ">
       <HyperText
       duration={3}
       className="text-sm font-bold  dark:text-[#ececec]"
