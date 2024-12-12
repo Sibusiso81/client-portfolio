@@ -1,8 +1,6 @@
 'use client'
 import HyperText from "@/components/ui/hyper-text";
-import { section } from "framer-motion/client";
-import { easeInOut, motion } from "framer-motion"
-import Image from "next/image";
+import { motion } from "framer-motion"
 import { useEffect, useState } from "react";
 import Particles from "@/components/ui/particles";
 import { useTheme } from "next-themes";
@@ -19,6 +17,7 @@ import {
 import { Dock, DockIcon } from "@/components/ui/dock";
 import Link from "next/link";
 import ModeToggle from "@/components/ui/mode-toggle";
+import Image from "next/image";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 export default function Home() {
@@ -104,8 +103,7 @@ export default function Home() {
     function getTime(){
       setInterval(()=>{
        const now = new Date()//Get the current data and time
-       const hour  = now.getHours()//extract hours
-       const minutes = 
+       //extract hours 
         now.getMinutes() <= 9 
         ?  SetTime(`${now.getHours().toString()}:${now.getMinutes().toString()}`)
          :  SetTime(`${now.getHours().toString()}:${now.getMinutes().toString()}`)
@@ -139,7 +137,7 @@ export default function Home() {
   useEffect(() => {
     setColor(resolvedTheme !== "dark" ?"#000000" :  "#ffffff" );
     console.log(color)
-  }, [resolvedTheme]);
+  }, [resolvedTheme,color]);
   return (
     <main className=" w-screen ">
        
@@ -287,7 +285,8 @@ export default function Home() {
    <div className="flex flex-col lg:flex-row-reverse overflow-auto ">
     {/* Img */}
     <div className="lg:max-h-full  p-2 lg:pr-10 object-cover md:w-full lg:w-auto md:h-1/2 md:p-3 lg:h-full">
-    <img src="https://framerusercontent.com/images/RK9JlqhMCOqLG3LeCevYuKP7rKA.jpeg" alt="" className="object-cover md:max-h-[80vh] lg:min-w-fit lg:min-h-screen md:w-screen " />
+    {/* <img src="https://framerusercontent.com/images/RK9JlqhMCOqLG3LeCevYuKP7rKA.jpeg" alt="" className="object-cover md:max-h-[80vh] lg:min-w-fit lg:min-h-screen md:w-screen " /> */}
+    <Image src={'https://framerusercontent.com/images/RK9JlqhMCOqLG3LeCevYuKP7rKA.jpeg'} alt="About-image" className="object-cover md:max-h-[80vh] lg:min-w-fit lg:min-h-screen md:w-screen"/>
     </div>
     {/* Text */}
     <div className="lg:max-w-[60vw] "> <p className="font-bold text-xl p-2 lg:text-3xl lg:justify-center xl:text-4xl lg:text-end">I FOCUS ON CREATING INTUITIVE EXPERIENCES WHERE EVERY ELEMENT SERVES A PURPOSE, ENSURING THAT NAVIGATION FEELS NATURAL AND EFFORTLESS. VISUALLY, MY DESIGNS ARE NOT JUST ATTRACTIVE BUT STRATEGIC, CAPTURING ATTENTION WHILE CONSISTENTLY REFLECTING YOUR BRAND S IDENTITY AND GOALS.</p>
@@ -309,7 +308,7 @@ export default function Home() {
     </div>
   
       </section>
-      <section className="w-screen h-screen"></section>
+    
     </main>
 
 
