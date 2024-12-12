@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 interface MousePosition {
   x: number;
@@ -78,6 +78,10 @@ const Particles: React.FC<ParticlesProps> = ({
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
   const rafID = useRef<number | null>(null);
 
+
+
+
+  
   useEffect(() => {
     if (canvasRef.current) {
       context.current = canvasRef.current.getContext("2d");
@@ -102,10 +106,10 @@ const Particles: React.FC<ParticlesProps> = ({
     initCanvas();
   }, [refresh]);
 
-  const initCanvas = () => {
+  const initCanvas = useCallback(() => {
     resizeCanvas();
     drawParticles();
-  };
+  },[]);
 
   const onMouseMove = () => {
     if (canvasRef.current) {
@@ -222,6 +226,7 @@ const Particles: React.FC<ParticlesProps> = ({
     return remapped > 0 ? remapped : 0;
   };
 
+  
   const animate = () => {
     clearContext();
     circles.current.forEach((circle: Circle, i: number) => {
@@ -272,7 +277,20 @@ const Particles: React.FC<ParticlesProps> = ({
     });
     rafID.current = window.requestAnimationFrame(animate);
   };
-
+  
+  useEffect(() => {
+    initCanvas();
+    animate();
+    window.addEventListener("resize", initCanvas);
+  
+    return () => {
+      if (rafID.current != null) {
+        window.cancelAnimationFrame(rafID.current);
+      }
+      window.removeEventListener("resize", initCanvas);
+    };
+  }, [initCanvas, animate]);
+  
   return (
     <div
       className={cn("pointer-events-none", className)}

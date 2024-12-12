@@ -3,7 +3,7 @@
 import React, { PropsWithChildren, useRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-
+import { MotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
@@ -72,7 +72,7 @@ Dock.displayName = "Dock";
 export interface DockIconProps {
   magnification?: number;
   distance?: number;
-  mouseX?: any | unknown;
+  mouseX?: MotionValue<number> | any;
   className?: string;
   children?: React.ReactNode;
   props?: PropsWithChildren;

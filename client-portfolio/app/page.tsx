@@ -17,7 +17,7 @@ import {
 import { Dock, DockIcon } from "@/components/ui/dock";
 import Link from "next/link";
 import ModeToggle from "@/components/ui/mode-toggle";
-import Image from "next/image";
+
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 export default function Home() {
