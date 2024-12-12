@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react";
 import Particles from "@/components/ui/particles";
 import { useTheme } from "next-themes";
-import { ArrowDownRight, CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
+import { ArrowDownRight, CalendarIcon, HomeIcon, MailIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -17,8 +17,7 @@ import {
 import { Dock, DockIcon } from "@/components/ui/dock";
 import Link from "next/link";
 import ModeToggle from "@/components/ui/mode-toggle";
-import classNames from "classnames";
-import { tree } from "next/dist/build/templates/app-page";
+
 
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
@@ -135,13 +134,9 @@ export default function Home() {
     console.log(color)
   }, [resolvedTheme,color]);
   ////
-  if(window.screenX> 0){
-    
-    console.log('scroll event logged')
+ 
 
-  }
-
-  const [isActive,setIsActive]= useState<boolean>(false)
+  /* const [isActive,setIsActive]= useState<boolean>(false)
   const useScrollDirection = ()=>{
     const [scrollDirection,setScrollDirection] = useState<'up'|'down'|null>(null);
     const [lastScrollY,setLastScrollY]= useState(0);
@@ -182,7 +177,7 @@ export default function Home() {
   window.addEventListener('scroll',()=>{
     console.log('scroll event logged')
   })
- })
+ }) */
   return (
     <main className=" w-screen h-screen  overflow-x-hidden">
         <section className="jsutify-center items-center w-full flex-col  h-screen  flex flex-1 relative ">
