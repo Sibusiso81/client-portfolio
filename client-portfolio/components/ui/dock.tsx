@@ -11,7 +11,7 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
   magnification?: number;
   distance?: number;
   direction?: "top" | "middle" | "bottom";
-  children: React.ReactNode;
+  children: React.ReactNode  ;
 }
 
 const DEFAULT_MAGNIFICATION = 60;
@@ -38,8 +38,8 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     const renderChildren = () => {
       return React.Children.map(children, (child) => {
         if (React.isValidElement(child) && child.type === DockIcon) {
-          return React.cloneElement(child, {
-            ...child.props,
+          return React.cloneElement(child as React.ReactElement<DockIconProps>, {
+            ...(child.props || {}),//fallback to an empty object if props is undefined
             mouseX: mouseX,
             magnification: magnification,
             distance: distance,
@@ -70,7 +70,6 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 Dock.displayName = "Dock";
 
 export interface DockIconProps {
-  size?: number;
   magnification?: number;
   distance?: number;
   mouseX?: any;
@@ -80,7 +79,6 @@ export interface DockIconProps {
 }
 
 const DockIcon = ({
-  size,
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
   mouseX,

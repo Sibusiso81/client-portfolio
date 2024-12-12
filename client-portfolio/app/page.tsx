@@ -104,9 +104,11 @@ export default function Home() {
       setInterval(()=>{
        const now = new Date()//Get the current data and time
        //extract hours 
-        now.getMinutes() <= 9 
+        {
+          now.getMinutes() <= 9 
         ?  SetTime(`${now.getHours().toString()}:${now.getMinutes().toString()}`)
          :  SetTime(`${now.getHours().toString()}:${now.getMinutes().toString()}`)
+        }
        //extract minutes
       
        /* if(minutes <= 9 ){
@@ -121,21 +123,23 @@ export default function Home() {
        const now = new Date()
        {
         now.getMinutes() <= 9 
-        ?  SetTime(`${now.getHours().toString()}:0${now.getMinutes().toString()}`)
+        ?  SetTime(`${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`)
+
          :  SetTime(`${now.getHours().toString()}:${now.getMinutes().toString()}`)
        }
      
        
      }
-     if(typeof window !== 'undefined'){
+    /*  if(typeof window !== 'undefined'){
       getTime()
       console.log(time)
       
-     }
+     } */
   })
   ///
   useEffect(() => {
     setColor(resolvedTheme !== "dark" ?"#000000" :  "#ffffff" );
+    
     console.log(color)
   }, [resolvedTheme,color]);
   return (
@@ -212,7 +216,7 @@ export default function Home() {
 
        <div className=" mx-auto my-auto items-center justify-center fixed bottom-9 w-fit ">
        <TooltipProvider>
-            <Dock direction="middle" className="">
+            <Dock direction="middle" className="" >
               {DATA.navbar.map((item) => (
                 <DockIcon key={item.label}>
                   <Tooltip>
@@ -265,7 +269,7 @@ export default function Home() {
                   <ModeToggle  />
                     
                   </TooltipTrigger>
-                  <TooltipContent onClick={()=> getTheme}>
+                  <TooltipContent >
                     <p>Theme</p>
                   </TooltipContent>
                 </Tooltip>
@@ -285,8 +289,8 @@ export default function Home() {
    <div className="flex flex-col lg:flex-row-reverse overflow-auto ">
     {/* Img */}
     <div className="lg:max-h-full  p-2 lg:pr-10 object-cover md:w-full lg:w-auto md:h-1/2 md:p-3 lg:h-full">
-    {/* <img src="https://framerusercontent.com/images/RK9JlqhMCOqLG3LeCevYuKP7rKA.jpeg" alt="" className="object-cover md:max-h-[80vh] lg:min-w-fit lg:min-h-screen md:w-screen " /> */}
-    <Image src={'https://framerusercontent.com/images/RK9JlqhMCOqLG3LeCevYuKP7rKA.jpeg'} alt="About-image" className="object-cover md:max-h-[80vh] lg:min-w-fit lg:min-h-screen md:w-screen"/>
+    <img src="https://framerusercontent.com/images/RK9JlqhMCOqLG3LeCevYuKP7rKA.jpeg" alt="" className="object-cover md:max-h-[80vh] lg:min-w-fit lg:min-h-screen md:w-screen " />
+   {/*  <Image src={'https://media.licdn.com/dms/image/v2/D4D03AQE2TyjKNsWxDg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723307992013?e=1739404800&v=beta&t=db413gRNU6e7xPG6ZXq9Moc6gY_G7SrjaHJB5ZcxpcU'} alt="About-image" className="object-cover md:max-h-[80vh] lg:min-w-fit lg:min-h-screen md:w-screen" width={0} height={0}/> */}
     </div>
     {/* Text */}
     <div className="lg:max-w-[60vw] "> <p className="font-bold text-xl p-2 lg:text-3xl lg:justify-center xl:text-4xl lg:text-end">I FOCUS ON CREATING INTUITIVE EXPERIENCES WHERE EVERY ELEMENT SERVES A PURPOSE, ENSURING THAT NAVIGATION FEELS NATURAL AND EFFORTLESS. VISUALLY, MY DESIGNS ARE NOT JUST ATTRACTIVE BUT STRATEGIC, CAPTURING ATTENTION WHILE CONSISTENTLY REFLECTING YOUR BRAND S IDENTITY AND GOALS.</p>
