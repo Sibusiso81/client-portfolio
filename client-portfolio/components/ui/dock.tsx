@@ -109,19 +109,7 @@ const DockIcon = ({
     damping: 12,
   });
   ////
-  const renderChildren = () => {
-    return React.Children.map(children, (child) => {
-      if (React.isValidElement(child) && child.type === DockIcon) {
-        return React.cloneElement(child as React.ReactElement<DockIconProps>, {
-          ...(child.props || {}),
-          mouseX: mouseX!, // Ensure mouseX is not undefined here
-          magnification: magnification,
-          distance: distance,
-        });
-      }
-      return child;
-    });
-  };
+  
   return (
     <motion.div
       ref={ref}
