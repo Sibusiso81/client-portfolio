@@ -17,6 +17,8 @@ import {
 import { Dock, DockIcon } from "@/components/ui/dock";
 import Link from "next/link";
 import ModeToggle from "@/components/ui/mode-toggle";
+import classNames from "classnames";
+import { tree } from "next/dist/build/templates/app-page";
 
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
@@ -25,6 +27,7 @@ export default function Home() {
   const [color, setColor] = useState("#ffffff");
   const { resolvedTheme } = useTheme();
   ///
+
   const Icons = {
     calendar: (props: IconProps) => <CalendarIcon {...props} />,
     email: (props: IconProps) => <MailIcon {...props} />,
@@ -72,7 +75,7 @@ export default function Home() {
   const DATA = {
     navbar: [
       { href: "#", icon: HomeIcon, label: "Home" },
-      { href: "#", icon: PencilIcon, label: "Blog" },
+      
     ],
     contact: {
       social: {
@@ -86,11 +89,7 @@ export default function Home() {
           url: "#",
           icon: Icons.linkedin,
         },
-        X: {
-          name: "X",
-          url: "#",
-          icon: Icons.x,
-        },
+        
         email: {
           name: "Send Email",
           url: "#",
@@ -135,6 +134,55 @@ export default function Home() {
     
     console.log(color)
   }, [resolvedTheme,color]);
+  ////
+  if(window.screenX> 0){
+    
+    console.log('scroll event logged')
+
+  }
+
+  const [isActive,setIsActive]= useState<boolean>(false)
+  const useScrollDirection = ()=>{
+    const [scrollDirection,setScrollDirection] = useState<'up'|'down'|null>(null);
+    const [lastScrollY,setLastScrollY]= useState(0);
+    let ticking = false;
+   
+    useEffect(()=>{
+      
+      const handleScroll = ()=>{
+        const currentScrollY = window.screenY;
+        if(currentScrollY > lastScrollY){
+          setScrollDirection('down');
+          setIsActive(true)
+          console.log(isActive)
+
+        }else if(currentScrollY < lastScrollY){
+          setScrollDirection('up');
+          setIsActive(false)
+          console.log(isActive)
+        }
+        setInterval(()=>{
+          setLastScrollY(currentScrollY)
+        },300)
+      };
+     
+      window.addEventListener('scroll',handleScroll);
+      return()=>{
+        window.removeEventListener('scroll',handleScroll)
+        console.log('scroll event logged')
+      }
+    },[lastScrollY])
+    return scrollDirection
+  }
+  window.addEventListener('scroll',(e)=>{
+    console.log(e.timeStamp)
+    console.log(window.screenY)
+  })
+ useEffect(()=>{
+  window.addEventListener('scroll',()=>{
+    console.log('scroll event logged')
+  })
+ })
   return (
     <main className=" w-screen h-screen  overflow-x-hidden">
         <section className="jsutify-center items-center w-full flex-col  h-screen  flex flex-1 relative ">
@@ -148,11 +196,11 @@ export default function Home() {
         
       </Particles>
       <div className="pr-2">
-    <div className="pr-4">
+    <div className="pr-4 ">
       <div className="flex flex-row justify-center">
       <HyperText
       duration={3}
-      className="text-xl text-end font-bold t dark:text-white"
+      className="text-xl text-end font-bold t dark:text-[#ececec]"
       text="Sanele  Ncube"
     />
       </div>
@@ -160,7 +208,7 @@ export default function Home() {
     <div className="flex flex-row justify-center">
       <HyperText
       duration={3}
-      className="text-sm font-bold  dark:text-white"
+      className="text-sm font-bold  dark:text-[#ececec]"
       text="JHB,South Africa"
     />
   
@@ -168,7 +216,7 @@ export default function Home() {
       <div className="flex flex-row justify-center text-center
       ">
       <motion.div
-      className="text-[10px] font-bold  dark:text-white"
+      className="text-[10px] font-bold  dark:text-[#ececec]"
       initial={{
         opacity:0,
       }}
@@ -203,14 +251,14 @@ export default function Home() {
         ease:'linear'
       }}
 
-      className="text-center my-auto text-sm text-muted-foreground max-w-screen-sm">
+      className="text-center text-[#ececec] my-auto text-sm  max-w-screen-sm text-muted-foregroundss">
         <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quasi vitae quisquam. Cum placeat distinctio architecto facilis ratione aliquid possimus animi facere harum. Hic consequatur ad quos illum voluptas facere?</h1>
         <i>-Sibusiso Zulu</i>
       </motion.div>
 
        <div className=" mx-auto my-auto items-center justify-center fixed bottom-9 w-fit ">
        <TooltipProvider>
-            <Dock direction="middle" className="" >
+            <Dock direction="middle" className=""  >
               {DATA.navbar.map((item) => (
                 <DockIcon key={item.label}>
                   <Tooltip>
