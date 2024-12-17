@@ -1,7 +1,7 @@
 'use client'
 import HyperText from "@/components/ui/hyper-text";
 import { motion } from "framer-motion"
-import { Children, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import Particles from "@/components/ui/particles";
 import { useTheme } from "next-themes";
 import { ArrowDownRight, CalendarIcon, HomeIcon, MailIcon } from "lucide-react";
@@ -482,7 +482,7 @@ height:109,width:109
           <p className="text-start"></p>
           <h2 className="text-nowrap text-start">Netflorist</h2>
           <h1 className="text-nowrap">Temp Data Entry Clerk </h1>
-          <p className="mt-2 text-muted-foreground">Managed high volume  data entry tasks with precision and contributed to the operational efficiency during the Valentine's Day peak session </p>
+          <p className="mt-2 text-muted-foreground">Managed high volume  data entry tasks with precision and contributed to the operational efficiency during the Valentine &apos; s Day peak session </p>
         </div>
       </div>
     </section>
@@ -490,7 +490,7 @@ height:109,width:109
     <div className="flex-row "> 
    <div className="pb-4">
    <div className="flex flex-row text-3xl font-bold space-x-1 items-center">
-      Let's 
+      Let &#39; s 
       <WordRotate
     className="pl-2 font-bold text-black dark:text-white"
     words={["Work", "Create",'Improve']}
