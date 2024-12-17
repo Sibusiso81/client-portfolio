@@ -486,11 +486,11 @@ height:109,width:109
         </div>
       </div>
     </section>
-    <section className="w-screen h-screen flex flex-col text-black dark:text-white justify-center p-1">
+    <section className="w-screen h-screen flex flex-col text-black dark:text-white justify-center items-center p-1">
     <div className="flex-row "> 
    <div className="pb-4">
    <div className="flex flex-row text-3xl font-bold space-x-1 items-center">
-      Let &#39; s 
+      Let&#39;s 
       <WordRotate
     className="pl-2 font-bold text-black dark:text-white"
     words={["Work", "Create",'Improve']}
@@ -507,7 +507,7 @@ height:109,width:109
     <div className=''><p>Available for new opportunities</p></div>
   </div>
 
-  <div className=' grid grid-cols-2 gap-6 p-2 lg:col-start-2'>
+  <div className=' grid grid-cols-2 gap-6 p-2 lg:col-start-2 max-w-screen-sm md:mx-auto'>
   <div className='col-span-1'>
       <input type="text" name="name" id="" className='rounded-md bg-[#f9f9f9]  w-full h-10 p-1 border-transparent border outline outline-transparent text-black' placeholder='Your name'  />
     </div>
