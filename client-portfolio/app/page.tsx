@@ -17,11 +17,9 @@ import {
 import { Dock, DockIcon } from "@/components/ui/dock";
 import Link from "next/link";
 import ModeToggle from "@/components/ui/mode-toggle";
-import Image from "next/image";
 import { Roboto_Mono } from "next/font/google";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import WordRotate from "@/components/ui/word-rotate";
-import { Form } from "@/components/ui/form";
+
 
 const robotoMono = Roboto_Mono({
   variable:"--font-roboto-mono",
