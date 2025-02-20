@@ -1,6 +1,5 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { main, section } from "framer-motion/client";
 import { Mail, Menu, X } from "lucide-react";
 import React, { useState } from "react";
 import Navbar from "./Navbar";
