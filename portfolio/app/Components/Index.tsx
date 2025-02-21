@@ -11,14 +11,15 @@ function Index() {
   return (
     <section className="relative flex flex-col min-h-screen ">
     <nav className="flex justify-between items-center w-full p-6 lg:p-10 ">
-      <div className="rounded-full bg-red-50">
-        <Image
+      <div className="">
+      {/*   <Image
           src="https://i.ibb.co/6cRtF4Dr/Screenshot-2025-02-19-105104.png"
           alt="Nav-profile-image"
           width={400}
           height={408}
           className="rounded-full w-12 object-cover"
-        />
+        /> */}
+        <h1 className="text-lg md:text-2xl font-bold">Sanele Ncube</h1>
       </div>
       <div className="flex items-center z-40">
         <Menu className={`cursor-pointer ${isOpen ? "hidden" : ""}`} onClick={() => setIsOpen(true)} />
@@ -28,24 +29,46 @@ function Index() {
 
     <AnimatePresence mode="wait">{isOpen && <Navbar />}</AnimatePresence>
 
-    <main className="flex-grow flex items-center justify-center px-4 py-10">
-      <div className="max-w-3xl space-y-6 text-center">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium">
-          Harnessing the power of technology and data to streamline processes, boost efficiency, and enable smarter
-          decision-making.
-        </h1>
-        <p className="text-muted-foreground">
-        Greetings! I&apos;m a Business Automation Analyst based in Johannesburg, passionate about automation, data-driven decision-making, and business process optimization.
-        </p>
-        <a
-          href="mailto:masanzawayne@gmail.com?subject=Let's Connect&body=Hi sanele,I'd like to discuss opportunities/collaboration"
-          className="inline-flex items-center space-x-3 text-black hover:text-white bg-white hover:bg-neutral-950 stroke-black hover:stroke-white rounded-full px-4 py-2 transition-colors duration-200"
-        >
-          <span>masanzawayne@gmail.com</span>
-          <Mail className="h-5 w-5" />
-        </a>
-      </div>
-    </main>
+
+      <section className=" p-2 md:p-6 space-y-8 lg:space-y-20 flex flex-col items-center tracking-tighter ">
+        <div className="flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-6">
+          <div className="w-fit flex justify-center">
+            <Image
+              src={"https://i.ibb.co/6cRtF4Dr/Screenshot-2025-02-19-105104.png"}
+              width={400}
+              height={400}
+              alt="Hero-Self-image"
+              className="rounded-full object-cover h-auto max-w-[40%] lg:max-w-[80%] 2xl:max-w-[80%]"
+            />
+          </div>
+          <div className="flex flex-col space-y-4 font-medium lg:p-4 xl:p-8 lg:w-1/2">
+            <h2 className="text-[54px] xl:text-[88px] font-interTight text-wrap whitespace-normal tracking-tighter flex flex-col p-0 leading-[0.85] md:hidden">
+              <span className="block">Business </span>
+              <span className="block">Automation</span>
+              <span className="block">Analyst</span>
+            </h2>
+            <h2 className="text-[44px] xl:text-[79px] font-interTight text-wrap whitespace-normal word-spacing-tight tracking-tighter md:flex flex-col p-0 space-y-0 hidden">
+              Business Automation Analyst
+            </h2>
+            <p className="md:text-md">
+              Leveraging automation, data analytics, and business intelligence to streamline processes, reduce
+              inefficiencies, and drive smarter decision-making. Passionate about transforming complex workflows into
+              seamless, scalable solutions that enhance productivity and business growth.
+            </p>
+            <p>
+              Exploring the intersection of RPA, business intelligence, and cybersecurity to create innovative,
+              secure, and scalable solutions.
+            </p>
+            <a
+              href="mailto:masanzawayne@gmail.com?subject=Let's Connect&body=Hi sanele,I'd like to discuss opportunities/collaboration"
+              className="text-black stroke-black hover:stroke-white hover:text-white bg-white hover:bg-neutral-950 rounded-full p-3 w-fit items-center flex flex-row space-x-3 text-sm"
+            >
+              <p>masanzawayne@gmail.com</p>
+              <Mail className="" />
+            </a>
+          </div>
+        </div>
+      </section>
   </section>
   );
 }

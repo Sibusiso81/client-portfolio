@@ -53,7 +53,7 @@ function Navbar() {
         ].map((_, i) => (
           <motion.div 
           key={i} 
-          className="w-full h-full bg-neutral-700"
+          className="w-full h-full bg-[#88958D]"
           variants={children}
           initial='hidden'
           animate='show'
