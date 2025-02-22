@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -17,8 +17,6 @@ import { Input } from "@/components/ui/input";
 
 import { Toaster, toast } from "sonner";
 import { redirect } from "next/navigation";
-import { POST } from "../api/mail/route";
-
 
 const formSchema = z.object({
   username: z
@@ -34,7 +32,6 @@ const formSchema = z.object({
     .min(5, { message: "Message must be at least 5 characters long." }),
 });
 
-
 export default function Page() {
   useEffect(() => {
     // Only runs in the browser
@@ -44,8 +41,6 @@ export default function Page() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   const [isMobile, setIsMobile] = useState(false);
-
-  
 
   return (
     <main className="overflow-x-hidden bg-[#393E41] text-[#eaeaea] ">
@@ -82,7 +77,7 @@ export default function Page() {
   );
 }
 
-function ProfileForm  ()  {
+function ProfileForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -96,28 +91,27 @@ function ProfileForm  ()  {
     const email = values.email;
     const username = values.username;
     const message = values.message;
-    
- try {
-  console.log('sending email',email,username,message)
-  const response = await fetch('/api/mail',{
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json",
-    },
-    body:JSON.stringify({
-      userFirstname:username,
-      userMessage:message,
-      userEmail:email,
-    })
-  })
-  if(!response.ok){
-    toast.error('Somthing went wrong')
-    console.log('sending email failed')
 
-  }
- } catch (error) {
-  toast.error('Please try again!')
- }
+    try {
+      console.log("sending email", email, username, message);
+      const response = await fetch("/api/mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userFirstname: username,
+          userMessage: message,
+          userEmail: email,
+        }),
+      });
+      if (!response.ok) {
+        toast.error("Somthing went wrong");
+        console.log("sending email failed");
+      }
+    } catch (error) {
+      toast.error("Please try again!");
+    }
     toast.success("Email sent!");
 
     console.log("Form submitted:", values);
@@ -156,11 +150,7 @@ function ProfileForm  ()  {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input
-                  placeholder="Enter your email"
-                  type="email"
-                  {...field}
-                />
+                <Input placeholder="Enter your email" type="email" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -186,11 +176,11 @@ function ProfileForm  ()  {
         <Button
           type="submit"
           className=" p-4 w-full hover:bg-neutral-800/20 text-black"
-          variant={'secondary'}
+          variant={"secondary"}
         >
           Submit
         </Button>
       </form>
     </Form>
   );
-};
+}
