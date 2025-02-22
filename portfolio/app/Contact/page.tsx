@@ -93,7 +93,6 @@ function ProfileForm() {
     const message = values.message;
 
     try {
-      console.log("sending email", email, username, message);
       const response = await fetch("/api/mail", {
         method: "POST",
         headers: {
@@ -110,6 +109,7 @@ function ProfileForm() {
         console.log("sending email failed");
       }
     } catch (error) {
+      console.log(error)
       toast.error("Please try again!");
     }
     toast.success("Email sent!");
