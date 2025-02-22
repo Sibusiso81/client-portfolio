@@ -99,7 +99,7 @@ export default function ProfileView() {
             className="space-y-4"
           >
             <p className="text-lg leading-relaxed text-[#eaeaea]/90">
-              I&apos;m a Business Analyst exploring the world of Robotic Process Automation (RPA) and Business Process
+              I&apos;m a Automation Business Analyst exploring the world of Robotic Process Automation (RPA) and Business Process
               Optimization. My passion lies in leveraging technology and data to create solutions that enhance
               efficiency and drive smarter decision-making. With a strong foundation in business intelligence,
               automation, and analytics, I focus on finding practical ways to improve processes, reduce
