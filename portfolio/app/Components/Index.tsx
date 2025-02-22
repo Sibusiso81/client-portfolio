@@ -9,7 +9,7 @@ function Index() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <section className="relative flex flex-col min-h-screen ">
+    <section className="relative flex flex-col h-fit md:min-h-screen ">
       <nav className="flex justify-between items-center w-full p-6 lg:p-10 ">
         <div className="">
           {/*   <Image

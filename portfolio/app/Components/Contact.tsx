@@ -5,7 +5,7 @@ import Gmail from "./Mail"
 
 function Contact() {
   return (
-    <section className="relative w-full h-screen bg-zinc-900 text-zinc-100 px-6 py-24 lg:px-24">
+    <section className="relative h-fit w-full md:h-screen bg-zinc-900 text-zinc-100 px-6 py-24 lg:px-24">
       <div className="max-w-7xl mx-auto space-y-20">
         {/* Header and Main Content */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">

@@ -5,7 +5,7 @@ import Contact from "./Components/Contact";
 
 export default function Home() {
   return (
-<main className="bg-[#393E41] overflow-x-hidden text-[#eaeaea] flex flex-col space-y-6  ">
+<main className="bg-[#393E41] overflow-x-hidden h-fit text-[#eaeaea] flex flex-col space-y-6  ">
   <Index/>
   <About/>
   <ExperienceSection/>
