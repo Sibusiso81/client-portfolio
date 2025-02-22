@@ -1,6 +1,6 @@
 import WelcomeEmail from "@/app/emails/EmailTemplate";
-import { render } from "@react-email/components";
-import type { NextApiRequest, NextApiResponse } from 'next';
+/* import { render } from "@react-email/components";
+import type { NextApiRequest, NextApiResponse } from 'next'; */
 import {Resend} from 'resend'
 
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);

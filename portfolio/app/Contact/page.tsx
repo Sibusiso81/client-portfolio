@@ -92,9 +92,9 @@ function ProfileForm  ()  {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    const email = values.email;
+    /* const email = values.email;
     const username = values.username;
-    const message = values.message;
+    const message = values.message; */
    
     toast.success("Email sent!");
 
