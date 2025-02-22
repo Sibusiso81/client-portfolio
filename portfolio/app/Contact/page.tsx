@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 
 import { Toaster, toast } from "sonner";
 import { redirect } from "next/navigation";
+import { POST } from "../api/mail/route";
 
 
 const formSchema = z.object({
@@ -92,10 +93,31 @@ function ProfileForm  ()  {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    /* const email = values.email;
+    const email = values.email;
     const username = values.username;
-    const message = values.message; */
-   
+    const message = values.message;
+    
+ try {
+  console.log('sending email',email,username,message)
+  const response = await fetch('/api/mail',{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+    },
+    body:JSON.stringify({
+      userFirstname:username,
+      userMessage:message,
+      userEmail:email,
+    })
+  })
+  if(!response.ok){
+    toast.error('Somthing went wrong')
+    console.log('sending email failed')
+
+  }
+ } catch (error) {
+  toast.error('Please try again!')
+ }
     toast.success("Email sent!");
 
     console.log("Form submitted:", values);
