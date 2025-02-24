@@ -53,7 +53,7 @@ function Index() {
               <span className="block">Analyst</span>
             </h2>
             <h2 className="text-[44px] xl:text-[79px] font-interTight text-wrap whitespace-normal word-spacing-tight tracking-tighter md:flex flex-col p-0 space-y-0 hidden">
-            Automation Business Analyst
+              Automation Business Analyst
             </h2>
             <p className="md:text-md">
               Leveraging automation, data analytics, and business intelligence

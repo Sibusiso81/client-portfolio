@@ -106,7 +106,6 @@ function ProfileForm() {
       });
       if (!response.ok) {
         toast.error("Somthing went wrong");
-        console.log("sending email failed");
       }
     } catch (error) {
       console.log(error)
