@@ -29,7 +29,7 @@ export default function ExperienceSection() {
       duration: "Aug 2024",
       company: "Hackathon",
       decription: [
-        "The Geo Spartans App is designed to help small-scale farmers network, collaborate, and learn new farming techniques. Recognizing the challenges that many farmers face—such as limited access to information, language barriers, and lack of connectivity with industry experts—this app provides an interactive platform where they can share insights, access agricultural best practices, and stay updated with market trends ",
+        "The Geo Spartans App is designed to help small scale farmers network, collaborate, and learn new farming techniques. Recognizing the challenges that many farmers face such as limited access to information, language barriers, and lack of connectivity with industry experts this app provides an interactive platform where they can share insights, access agricultural best practices, and stay updated with market trends ",
       ],
       badges: [
         "Networking & Collaboration  ",
